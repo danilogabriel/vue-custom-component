@@ -5,12 +5,30 @@
     <title>custom-element</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="calculadora.js"></script>    
+    <script src="calculadora.js"></script>  
+    <script>
+      function initEventListener(){
+
+        document.getElementById("calcu").addEventListener("calculado", function(event){
+            alert("El total de intereses es: " + event.detail[0])
+        });        
+
+      }
+    </script>  
   </head>
-  <body>
+  <body onload="initEventListener()">
+
     <div>
-      <calculo-intereses params="aaa bb ccc "></calculo-intereses>
-      <calculo-intereses params="{{ [{text: 'Cats', value: 'cats'}] }}"></calculo-intereses>
+      <h3>Esta es una página de negocio en alguna tecnologia anterior (JSP)</h3>
+      <p> 
+          Y en un tag se le inyectará una calculadora de intereses como custom-component.
+          Cuando se pulse el boton "Calcular" el componente hará el calculo
+          y devolverá el resultado a HTML original (lo mostramos con un Alert)
+      </p>
+    <div>
+
+    <div>
+      <calculo-intereses id="calcu" valor1="288" valor2="12" ></calculo-intereses>
     </div>
   </body>
 </html>
